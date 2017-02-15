@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_camera);
+
+        Bundle bundle=new Bundle();
+        bundle.putString(BlankFragment.ARG_PARAM1,"Camera");
+        BlankFragment bf=new BlankFragment();
+        bf.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.item_detail_container,bf).commit();
+
+
     }
 
     @Override
