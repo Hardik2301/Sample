@@ -80,19 +80,29 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        Bundle bundle=new Bundle();
+
         if (id == R.id.nav_camera) {
+            bundle.putString(BlankFragment.ARG_PARAM1,"Camera");
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            bundle.putString(BlankFragment.ARG_PARAM1,"Gallery");
         } else if (id == R.id.nav_slideshow) {
-
+            bundle.putString(BlankFragment.ARG_PARAM1,"SlideShow");
         } else if (id == R.id.nav_manage) {
-
+            bundle.putString(BlankFragment.ARG_PARAM1,"Manage");
         } else if (id == R.id.nav_share) {
-
+            bundle.putString(BlankFragment.ARG_PARAM1,"Share");
         } else if (id == R.id.nav_send) {
-
+            bundle.putString(BlankFragment.ARG_PARAM1,"Send");
         }
+
+        BlankFragment bf=new BlankFragment();
+        bf.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.item_detail_container, bf)
+                .addToBackStack(null)
+                .commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
